@@ -1,0 +1,426 @@
+@font-face {
+    font-family: "medic";
+    src: url("fonts/LeoscarSerif.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin header {
+    background-color: transparent;
+  }
+
+@mixin grid-image {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 1600px;
+    font-family: Ubuntu, sans-serif;
+    header {
+        width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(7, 200px);
+        grid-template-rows: repeat(1, 200px);
+        grid-template-areas:
+            "logo name name name nav nav nav";
+        #logo {
+            @include header;
+            grid-area: logo;
+            a {
+                > img {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+        }
+
+        #webpage_heading {
+            @include header;
+            grid-area: name;
+            display: grid;
+
+            h1 {
+                place-self: center;
+                font-size: 8vw;
+                font-family: medic, serif;
+            }
+        }
+
+        nav {
+            @include header;
+            grid-area: nav;
+            display: grid;
+
+            ul {
+                list-style-type: none;
+                place-self: center;
+
+                & li:not(:first-child) {
+                    margin-left: 10px;
+                }
+
+                li {
+                    display: inline-block;
+
+                    a {
+                        padding-bottom: 5%;
+                        text-decoration: none;
+                        color: rgb(30, 30, 30);
+                        font-size: 2.5vw;
+                        transition: background-image .2s ease-in-out;
+                        transition: color .2s ease-in-out;
+                        background-image: linear-gradient(rgb(184, 15, 10), rgb(184, 15, 10));
+                        background-position: bottom center;
+                        background-size: 0% 2px;
+                        background-repeat: no-repeat;
+
+                        &:hover {
+                            color: rgb(184, 15, 10);
+                            background-position: bottom right;
+                            background-image: linear-gradient(rgb(184, 15, 10), rgb(184, 15, 10));
+                            background-size: 100% 2px;
+                            transition:
+                            background-size .5s,
+                            background-position 0s .5s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(7, 200px);
+        grid-template-rows: repeat(6, 200px);
+        grid-template-areas:
+            "text1 text1 text1 photo1 text2 text2 text2"
+            "text1 text1 text1 photo2 text2 text2 text2"
+            "text3 text3 text4 text4 text4 photo3 photo4"
+            "text3 text3 text4 text4 text4 text5 text5"
+            "photo5 photo5 text4 text4 text4 text5 text5"
+            "photo5 photo5 photo6 photo7 photo8 text5 text5";
+
+        & div:nth-child(1) {
+            grid-area: text1;
+            place-self: center;
+
+            
+            ul {
+                max-width: 400px;
+                margin-top: 5%;
+
+                li:not(:first-child) {
+                    margin-top: 2%;
+                }
+
+                li {
+                    margin-left: 10px;
+                    font-size: 18px;
+                }
+            }
+
+            i {
+                display: none;
+                
+                a {
+                    text-decoration: none;
+                    color: rgb(30, 30, 30);
+                    font-size: 18px;
+
+                    &:hover {
+                        color: rgb(184, 15, 10);
+                    }
+                }
+            }
+
+            &:hover {
+                i {
+                    display: inline-block;
+                }
+            }
+        }
+
+        & div:nth-child(2) {
+            grid-area: photo1;
+
+            a {
+                img {
+                    @include grid-image;
+                }
+            }
+        }
+
+        & div:nth-child(3) {
+            grid-area: photo2;
+
+            a {
+                img {
+                    @include grid-image;
+                }
+            }
+           
+        }
+
+        & div:nth-child(4) {
+            grid-area: text2;
+            place-self: center;
+
+            h1 {
+                font-size: 32px;
+            }
+
+            ul {
+                max-width: 300px;
+                margin-top: 5%;
+
+                li:not(:first-child) {
+                    margin-top: 5%;
+                }
+
+                li {
+                    list-style-type: none;
+                    padding-left: 10px;
+                    font-size: 18px;
+                }
+            }
+
+            i {
+                display: none;
+                
+                a {
+                    text-decoration: none;
+                    color: rgb(30, 30, 30);
+                    font-size: 18px;
+
+                    &:hover {
+                        color: rgb(184, 15, 10);
+                    }
+                }
+            }
+
+            &:hover {
+                i {
+                    display: inline-block;
+                }
+            }
+        }
+
+        & div:nth-child(5) {
+            grid-area: text3;
+
+            h1 {
+                font-size: 32px;
+                text-align: center;
+            }
+
+            ul {
+                max-width: 300px;
+                margin: 5% auto 0 auto;
+
+                li:not(:first-child) {
+                    margin-top: 5%;
+                }
+
+                li {
+                    list-style-type: none;
+                    padding-left: 10px;
+                    font-size: 18px;
+                    text-align: justify;
+                }
+            }
+
+            i {
+                display: none;
+                
+                a {
+                    text-decoration: none;
+                    color: rgb(30, 30, 30);
+                    font-size: 18px;
+
+                    &:hover {
+                        color: rgb(184, 15, 10);
+                    }
+                }
+            }
+
+            &:hover {
+                i {
+                    display: inline-block;
+                }
+            }
+        }
+
+        & div:nth-child(6) {
+            grid-area: text4;
+
+            h1 {
+                text-align: center;
+                margin-top: 15%;
+            }
+
+            ul {
+                max-width: 550px;
+                margin: 0 auto;
+
+                li {
+                    max-width: 80%;
+                    list-style-type: none;
+                    font-size: 21px;
+                    margin: 3% auto 0 auto;
+                    text-align: center;
+                }
+            }
+
+            i {
+                display: none;
+                
+                a {
+                    text-decoration: none;
+                    color: rgb(30, 30, 30);
+                    font-size: 18px;
+
+                    &:hover {
+                        color: rgb(184, 15, 10);
+                    }
+                }
+            }
+
+            &:hover {
+                i {
+                    display: inline-block;
+                }
+            }
+        }
+
+        & div:nth-child(7) {
+            grid-area: photo3;
+
+            a {
+                img {
+                    @include grid-image;
+                }
+            }
+        }
+
+        & div:nth-child(8) {
+            grid-area: photo4;
+
+            a {
+                img {
+                    @include grid-image;
+                }
+            }
+        }
+
+        & div:nth-child(9) {
+            grid-area: text5;
+            width: 100%;
+            h1 {
+                font-size: 32px;
+                text-align: center;
+                margin-top: 10%;
+            }
+
+            ul {
+                width: 80%;
+                margin: 5% auto 0 auto;
+
+                li {
+                    font-size: 18px;
+                    
+                    &:last-child {
+                        margin-bottom: 30px;
+                    }
+
+                    ul {
+                        margin-left: 5%;
+
+                        li {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+
+            p {
+                width: 90%;
+                margin: 0 auto;
+                text-align: justify;
+                font-size: 18px;
+
+                span {
+                    color: rgb(184, 15, 10);
+                    font-weight: 600;
+                }
+            }
+
+            i {
+                display: none;
+                
+                a {
+                    text-decoration: none;
+                    color: rgb(30, 30, 30);
+                    font-size: 18px;
+
+                    &:hover {
+                        color: rgb(184, 15, 10);
+                    }
+                }
+            }
+
+            &:hover {
+                i {
+                    display: inline-block;
+                }
+            }
+        }
+
+        & div:nth-child(10) {
+            grid-area: photo5;
+
+            a {
+                img {
+                    @include grid-image;
+                }
+            }
+        }
+
+        & div:nth-child(11) {
+            grid-area: photo6;
+
+            a {
+                img {
+                    @include grid-image;
+                }
+            }
+        }
+
+        & div:nth-child(12) {
+            grid-area: photo7;
+
+            a {
+                img {
+                    @include grid-image;
+                }
+            }
+        }
+
+        & div:nth-child(13) {
+            grid-area: photo8;
+
+            a {
+                img {
+                    @include grid-image;
+                }
+            }
+        }
+    }
+}
